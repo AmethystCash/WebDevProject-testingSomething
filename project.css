@@ -1,0 +1,79 @@
+header{
+    height: 100px;
+    background-color: rgba(0, 128, 0, 0.7);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    border-style: solid;
+    border-color:  rgba(0, 128, 0, 1);
+    border-width: 5px, 5px, 5px, 5px;
+}
+
+.navLink{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(0, 128, 0, 1);
+    border-radius: 5px;
+    color: gainsboro;
+    text-decoration: none;
+
+}
+
+body{
+    background-color: gainsboro;
+}
+
+#login-Body{
+    background-image: url(Images/Chess_Board.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#login-Field-Container{
+    background-color: gainsboro;
+    border: 5px;
+    border-color: black;
+    border-radius: 15px;
+    border-style: solid;
+
+    height: 150px;
+    width: 300px;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.login-info{
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%)
+}
+
+#login-button{
+    background-color: gainsboro;
+    color: white;
+    border: 2px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+h1{
+    color: gainsboro;
+    text-align: center;
+    font-size: 10px;
+}
