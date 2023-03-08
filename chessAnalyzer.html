@@ -2,17 +2,40 @@
 <html>
   <head>
     <title>Chess Analyzer</title>
+    <link rel="stylesheet" href="project.css">
+
+    
   </head>
   <body>
-    <h1>Chess Analyzer</h1>
-    <form>
-      <label for="chess-input">Enter the chess game:</label>
-      <br>
-      <textarea id="chess-input" name="chess-input" rows="10" cols="50"></textarea>
-      <br>
-      <button type="button" id="analyze-button">Analyze Game</button>
-    </form>
-    <div id="analysis-results"></div>
-    <script src="app.js"></script>
+    <header>
+      <h1>Chess Analyzer</h1>
+  
+      <nav>
+        <a class="navLink" href="newsPage.html">News</a>
+        <a class="navLink" href="chessAnalyzer.html">Stockfish Game Analyzer</a>
+        <a class="navLink" style="float: right;" href="login.html">Login</a>
+      </nav>
+    </header>
+
+    <section id="analyzer">
+
+      <section class="analyzer-section" id="analyzer-input">
+        <form>
+          <label for="chess-input">Enter the chess game:</label>
+          <br>
+          <textarea id="chess-input" name="chess-input" rows="10" cols="50"></textarea>
+          <br>
+          <button type="button" id="analyze-button">Analyze Game</button>
+        </form>
+        <div id="analysis-results"></div>
+        <script src="app.js"></script>
+      </section>
+      
+      <section class="analyzer-section" id="analyzer-output">
+        Will display the results here
+      </section>
+
+    </section>
+    
   </body>
 </html>
