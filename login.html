@@ -21,14 +21,18 @@
 
         <section id="login-Field-Container" class="centered">
 
-            <p class="center-text">Login</p>
-
-            <input class="login-info" type="text" placeholder="Enter Username" name="uname" required>
-            <br>
-            <input class="login-info" type="text" placeholder="Enter Password" name="pass" required>
-            <br>
-            <br>
-            <button class="login-info" id="login-button" onclick="private.html">Login</button><!--type="submit"-->
+            <p class="center-text" style="font-size: 25px;">Login</p>
+            <form method="post" action="private.html" >
+                <input class="login-info" type="text" placeholder="Enter Username" name="uname" required>
+                <br>
+                <br>
+                <input class="login-info" type="text" placeholder="Enter Password" name="pass" required>
+                <br>
+                <br>
+                <!--button class="login-info" id="login-button" onclick="private.html">Login</button><--type="submit"-->
+                <input class="login-info" type="button" name="submit" id="button" value="submit">
+            </form>
+            
         </section>
 
     </body>
