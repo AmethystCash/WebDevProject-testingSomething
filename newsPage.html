@@ -20,44 +20,21 @@
         <main>
             <section id="news">
                 <!--Going to scrape news from chess.com-->
-                
+
                 <script>
-                    //call the python script to scrape from chess.com
-                    const { exec } = require('child_process');
-
-                    const scriptPath = './scrape.py';
-
-                    exec(`python ${scriptPath}`, (error, stdout, stderr) => {
-                    if (error) {
-                        console.error(`Error executing script: ${error}`);
-                        return;
-                    }
-
-                    console.log(`Script output: ${stdout}`);
-                    });
-
-
-                    // Get a reference to the section element where you want to load the HTML file
-                    const section = document.querySelector('#news');
-
-                    // Create an instance of the XMLHttpRequest object
-                    const xhttp = new XMLHttpRequest();
-
-                    // Set up a callback function to handle the response
-                    xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        // If the response is successful, load the contents of the HTML file into the section element
-                        section.innerHTML = this.responseText;
-                    }
-                    };
-
-                    // Open a GET request to the HTML file you want to load
-                    xhttp.open('GET', 'chess.html', true);
-
-                    // Send the request
-                    xhttp.send();
+                    const section = document.querySelector('section');
+                    fetch('https://www.chess.com/today')
+                    .then(response => response.text())
+                    .then(data => {
+                        const parser = new DOMParser();
+                        const html = parser.parseFromString(data, 'text/html');
+                        const layoutColumnOne = html.getElementById('layout-column-one');
+                        section.appendChild(layoutColumnOne);
+                    })
+                    .catch(error => console.error(error));
 
                 </script>
+                
             </section>
         </main>
 
