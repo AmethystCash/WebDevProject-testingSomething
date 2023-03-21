@@ -31,7 +31,14 @@
     <footer>
         <script>
             const section = document.querySelector('news');
-            fetch('https://www.chess.com/today')
+            fetch('https://www.chess.com/today',{
+                method:'GET',
+                headers:{
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                mode: 'no-cors',
+            })
             .then(response => response.text())
             .then(data => {
                 const parser = new DOMParser();
