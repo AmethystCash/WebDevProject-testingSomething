@@ -8,6 +8,7 @@
 
     </head>
     <body>
+
         <header>
             <h1>Chess News</h1>
         
@@ -17,37 +18,24 @@
                 <a class="navLink" style="float: right;" href="login.html">Login</a>
             </nav>
         </header>
-        <main>
-            <section id="news">
-                <!--Going to scrape news from chess.com-->
+        <main style="display: flex; flex-direction: row; justify-content: center;">
+            
 
+            <section id="news" style="height: 100vh; width: 62vw;">
+                <!--Going to scrape news from chess.com-->
+                <iframe src="chess.html" width="80%" height="100%" onclick="window.parent.document.location.href='chess.com/today'//ask aine how to redirect from in an iframe">
+
+                </iframe>
                 
                 
             </section>
         </main>
 
-
     </body>
     <footer>
         <script>
-            const section = document.querySelector('news');
-            fetch('https://www.chess.com/today',{
-                method:'GET',
-                headers:{
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
-                },
-                mode: 'no-cors',
-            })
-            .then(response => response.text())
-            .then(data => {
-                const parser = new DOMParser();
-                const html = parser.parseFromString(data, 'text/html');
-                const layoutColumnOne = html.getElementById('layout-column-one');
-                section.appendChild(layoutColumnOne);
-            })
-            .catch(error => console.error(error));
 
         </script>
+        
     </footer>
 </html>
