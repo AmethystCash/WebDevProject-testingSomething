@@ -23,22 +23,26 @@ if last_run is None or time.time() - float(last_run) > -1800:
     soup = BeautifulSoup(response.text, 'html.parser')
 
     # Find the div with the class 'layout-column-one'
-    div = soup.find('div', {'class': 'layout-column-one'})
+    div = soup.find('a', {'class': 'chess-today-headline-post'})
 
-    print(div)
+
+
+    # Find the link tag that contains the stylesheet and get the href attribute value
+    stylesheet_url = soup.find('link', rel='stylesheet')['href']
+
+    # Make a GET request to the stylesheet URL and get the response
+    stylesheet_response = requests.get("https://chess.com/" + stylesheet_url)
 
     # Save the div content to a file
-    with open('Week02/Project/chess.html', 'w') as file:
+    with open('Week02/Project/chess.html', 'w', encoding="UTF-8") as file:
+        file.write("<style>\n")
+        file.write(stylesheet_response.text)
+        file.write("\n</style>\n")
         file.write(str(div))
 
-    #thing = open("chess.txt", "w")
-    #thing.write(str("abc"))
-    #thing.close
-
-    with open("testing.txt", "w") as text_file:
-        text_file.write("test")
-    
-    print("Yes we are")
+    # Save the contents of the stylesheet response to a file
+    #with open('Week02/Project/chesscomstylesheet.css', 'w', encoding="UTF-8") as f:
+     #   f.write(stylesheet_response.text)
 
     # Set the cookie with the current timestamp
     response.cookies.set('last_run', str(time.time()))
