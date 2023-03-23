@@ -3,14 +3,71 @@
     <head>
         <title>Personal Page</title>
         <link rel="stylesheet" href="project.css">
-
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            #chart-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+            }
+    
+            #chart {
+                border-collapse: collapse;
+                border: 1px solid black;
+                margin-bottom: 30px;
+            }
+    
+            #chart td {
+                border: none;
+                padding: 0;
+                height: 20px;
+                width: 20px;
+                background-color: white;
+            }
+    
+            .bar-item-green {
+                background-color: green;
+            }
+    
+            .bar-item-grey {
+                background-color: grey;
+            }
+    
+            .bar-item-red {
+                background-color: red;
+            }
+    
+            #group-labels {
+                margin-top: 30px;
+            }
+    
+            #group-labels ol {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            #group-labels li {
+                margin-bottom: 10px;
+            }
+    
+            .chart-name {
+                margin-right: 10px;
+            }
+        </style>
         
 
     </head>
     <body>
         <header>
             <h1>Personal</h1>
-        
+
             <nav>
                 <a class="navLink" href="newsPage.html">News</a>
                 <a class="navLink" href="chessAnalyzer.html">Stockfish Game Analyzer</a>
@@ -18,7 +75,101 @@
             </nav>
         </header>
 
-        
+        <div id="chart-container">
+            <table id="chart">
+                <tbody id="chart-data"></tbody>
+            </table>
+            <div id="group-labels">
+                <ol id="group-list"></ol>
+            </div>
+        </div>
+
+        <script>
+            var num_groups = Math.floor(Math.random() * 10);//will be pulled from chess.com api
+            console.log(num_groups);
+            var num_bars = num_groups * 4;
+            var bar_data = [];
+            var max_value = 50;
+            var group_names = ['Group A', 'Group B', 'Group C', 'Group D', 'Group E'];//use push to grab playername from chess.com api
+            
+            console.log('set values works ' + max_value);
+            for (let i = 0; i < num_groups; i++) {
+                var group_bars = [];
+                /*for (let j = 0; j < 3; j++) {
+                    var bar_value = Math.floor(Math.random(0, 20)) + 3;
+                    group_bars.push(bar_value);
+                    if (bar_value > max_value) {
+                        max_value = bar_value;
+                    }
+                }*/
+                group_bars.push(Math.floor(Math.random() * 5) + 5);
+                group_bars.push(Math.floor(Math.random() * 5) + 5);
+                group_bars.push(Math.floor(Math.random() * 5) + 5);
+                group_bars.push(0);
+
+                bar_data.push(group_bars);
+            }
+    
+            var chart_data = '';
+            for (let i = 0; i < max_value; i++) {
+                console.log(i);
+                chart_data += '<tr>';
+                /*for (let j = 0; j < num_groups; j++) {
+                    /*if (i < bar_data[j].length) {
+                        var bar_value = bar_data[j][i];
+                        var bar_class = '';
+                       
+                        if (bar_value > 10) {
+                            bar_class = 'bar-item-red';
+                        } else if (bar_value > 5) {
+                            bar_class = 'bar-item-grey';
+                        } else {
+                            bar_class = 'bar-item-green';
+                        }
+                        chart_data += '<td class="' + bar_class + '"></td>';
+                    } else {
+                        chart_data += '<td></td>';
+                    }*/
+
+                if (i%4 == 0){
+                    for (let k = 0; k < bar_data[i]; k++){
+                        console.out(bar_data[i]);
+                        chart_data += '<td bgcolour="green">';
+                    }
+                    for (let k = i; i < max_value; k++){
+                        chart_data += '<td>';
+                    }
+                } else if (i%4 == 1){
+                    for (let k = 0; k < bar_data[i]; k++){
+                        chart_data += '<td bgcolour="gray">';
+                    }
+                    for (let k = i; i < max_value; k++){
+                        chart_data += '<td>';
+                    }
+                }else if (i%4 == 2){
+                    for (let k = 0; k < bar_data[i]; k++){
+                        chart_data += '<td bgcolour="red">';
+                    }
+                    for (let k = i; i < max_value; k++){
+                        chart_data += '<td>';
+                    }
+                }else{
+                    for (let k = 0; k < max_value; k++){
+                        chart_data += '<td>';
+                    }
+                }
+                //}
+                chart_data += '</tr>';
+            }
+            document.getElementById('chart-data').innerHTML = chart_data;
+            
+            var group_list = '';
+		    for (var i = 0; i < num_groups; i++) {
+                group_list += '<li><span class="chart-name">' + group_names[i] + ':</span>';
+                group_list += '<span>' + bar_data[i].reduce((a, b) => a + b, 0) + '</span></li>';
+            }
+            document.getElementById('group-list').innerHTML = group_list;
+        </script>
 
         <section>
             <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59114448.43114135!2d-42.09526046516597!3d25.268580564135945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486722e7908619b7%3A0xdc4f304036eabc1!2sBalbriggan%20Chess%20Club!5e0!3m2!1sen!2sie!4v1678890710420!5m2!1sen!2sie" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

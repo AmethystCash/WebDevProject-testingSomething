@@ -18,12 +18,12 @@
                 <a class="navLink" style="float: right;" href="login.html">Login</a>
             </nav>
         </header>
-        <main style="display: flex; flex-direction: row; justify-content: center;">
+        <main id="news-main">
             
-            <iframe style="width: 400px; height: 560px;" src="https://www.chess.com/daily_puzzle" frameborder="0"></iframe>
-            <section id="news" style="height: 100vh; width: 62vw;">
-                <!--Going to scrape news from chess.com-->
-                <script async defer src='https://p3k.org/rss/main.js?align=initial&amp;boxFillColor=%23ffead2&amp;compact=false&amp;fontFace=10pt%20sans-serif&amp;frameColor=%23b3a28e&amp;headless=false&amp;height=&amp;linkColor=%232c7395&amp;maxItems=7&amp;radius=5&amp;showXmlButton=true&amp;textColor=%2395412b&amp;titleBarColor=%2390a8b3&amp;titleBarTextColor=%23ffead2&amp;url=https%3A%2F%2Fchess.com%2Frss%2Fnews&amp;width='></script>
+            <iframe style="width: 400px; height: 520px; padding-top: 10px; margin: 10px; overflow-x: hidden;" src="https://www.chess.com/daily_puzzle" frameborder="0"></iframe>
+            <section id="news">
+                <!--Going to scrape news from chess.com using rss feed-->
+                <script async defer src='https://p3k.org/rss/main.js?align=initial&amp;boxFillColor=%23ebecd0&amp;compact=false&amp;fontFace=10pt%20sans-serif&amp;frameColor=%23779456&amp;headless=false&amp;height=&amp;linkColor=%232c7395&amp;maxItems=25&amp;radius=10&amp;showXmlButton=true&amp;textColor=%2395412b&amp;titleBarColor=%2390a8b3&amp;titleBarTextColor=%23ffead2&amp;url=https%3A%2F%2Fchess.com%2Frss%2Fnews&amp;width='></script>
             </section>
         </main>
 
