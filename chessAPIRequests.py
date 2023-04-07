@@ -28,11 +28,19 @@ for x in reversed(links):
 #time.sleep(10)
 #r6 = requests.request('GET', 'https://api.chess.com/pub/player/amethystcash/games/2022/04')
 
-spreadsheetId = "1WkkQ4uJexSuQgxh4fBvikmvxifZMH5iDkda9fMi4s-M"
-cellID = "A1"
-apiKey = "AIzaSyDk1ViJlrBAt3Dj4S2uPlRA8ss58NSd7mE"
 
-print(requests.request('GET', f'https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values/{cellID}?key={apiKey}').text)
+data = requests.request('https://data.mongodb-api.com/app/data-abcde/endpoint/data/v1/action/insertOne', headers='apiKey: TpqAKQgvhZE4r6AOzpVydJ9a3tB1BLMrgDzLlBLbihKNDzSJWTAHMVbsMoIOpnM6',
+header 'Content-Type: application/json'
+  --data-raw '{
+      "dataSource": "Cluster0",
+      "database": "learn-data-api",
+      "collection": "hello",
+      "document": {
+        "text": "Hello from the Data API!",
+      }
+  }')
+
+print()
 
 #print(r3.text)
 #print(r4.text)

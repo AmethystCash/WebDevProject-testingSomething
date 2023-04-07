@@ -172,8 +172,11 @@ footer{
 #group-list{
     display: flex;
     align-items: stretch;
-    justify-content: space-between;
     flex-direction: column;
+
+    padding: 0;
+    margin: 11px 0;
+    gap: 62px;
     
 }
 
