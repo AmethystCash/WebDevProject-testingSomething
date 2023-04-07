@@ -4,63 +4,8 @@
         <title>Personal Page</title>
         <link rel="stylesheet" href="project.css">
         <link rel="script" href="chess_com.js">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-    
-            #chart-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-top: 50px;
-            }
-    
-            #chart {
-                border-collapse: collapse;
-                border: 1px solid black;
-                margin-bottom: 30px;
-            }
-    
-            #chart td {
-                border: none;
-                padding: 0;
-                height: 20px;
-                width: 20px;
-                /*background-color: white;*/
-            }
-    
-            .bar-item-green {
-                background-color: green;
-            }
-    
-            .bar-item-grey {
-                background-color: grey;
-            }
-    
-            .bar-item-red {
-                background-color: red;
-            }
-    
-            #group-labels {
-                margin-top: 30px;
-            }
-    
-            #group-labels ol {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-    
-            #group-labels li {
-                margin-bottom: 10px;
-            }
-    
-            .chart-name {
-                margin-right: 10px;
-            }
+        <style id="style-js">
+        
         </style>
         
 
@@ -76,71 +21,78 @@
             </nav>
         </header>
 
-        <div id="chart-container">
+        <section id="chart-container">
+            <section id="group-labels">
+                <ol id="group-list"></ol>
+            </section>
             <table id="chart">
                 <tbody id="chart-data"></tbody>
             </table>
-            <div id="group-labels">
-                <ol id="group-list"></ol>
-            </div>
-        </div>
+            <section>
+                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59114448.43114135!2d-42.09526046516597!3d25.268580564135945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486722e7908619b7%3A0xdc4f304036eabc1!2sBalbriggan%20Chess%20Club!5e0!3m2!1sen!2sie!4v1678890710420!5m2!1sen!2sie" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+        </section>
 
         <script>
             var tableArray = [5, 7, 1, 19, 5, 15, 13, 3, 8, 10, 14, 16];
+            var playerArray = ["Player 1", "Player 2", "Player 3", "Player 4"];
             var maxLength = 20;
             var tableHTML = "";
+            var blanks = 0;
+
+            function addBlank() { //adds a blank row
+                document.getElementById("chart").insertAdjacentHTML("beforeend", "<tr id=blank"+ blanks +">");
+                for (var g = 0; g < maxLength + 1; g++){
+                    document.getElementById("blank" + blanks).insertAdjacentHTML("beforeend", "<td></td>");
+                }
+                document.getElementById("chart").insertAdjacentHTML("beforeend", "</tr>");
+                blanks += 1;
+            }
 
             for (let h = 0; h < tableArray.length; h += 1) {
-                console.log(h);
-                console.log(tableArray[h]);
                 if (tableArray[h] > maxLength){
                     maxLength = tableArray[h];
                 }
             }
 
-            //document.getElementById("chart").insertAdjacentHTML("beforeend", "<tr><td bgcolor='green'>hello</td></tr>")
-            for (var i = 0; i <= tableArray.length; i += 3){
+            for (var i = 0; i < tableArray.length; i += 3){
+                
+                addBlank();
+                document.getElementById("group-list").insertAdjacentHTML("beforeend", "<li><span>" + playerArray[i/3] + " : </span></li>")
+
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "<tr id=row" + i + ">");
+                document.getElementById("row" + i).insertAdjacentHTML("beforeend", "<td style='width:70px'>Wins: </td>");
+                
                 for (var j = 0; j < tableArray[i]; j += 1){
                     document.getElementById("row" + i).insertAdjacentHTML("beforeend", "<td bgcolor='green'></td>");
-
-                }
-                for (var k = maxLength; k > j; k -= 1){
-                    document.getElementById("row" + i).insertAdjacentHTML("beforeend", "<td></td>");
+                    console.log("J = " + j)
                 }
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "</tr><tr id=row" + (i+1) + ">");
+                document.getElementById("row" + (i+1)).insertAdjacentHTML("beforeend", "<td>Draws: </td>");
+                
                 
                 for (var j = 0; j < tableArray[i+1]; j += 1){
                     document.getElementById("row" + (i+1)).insertAdjacentHTML("beforeend", "<td bgcolor='gray'></td>");
                 }
-                for (var k = maxLength; k > j; k -= 1){
-                    document.getElementById("row" + i).insertAdjacentHTML("beforeend", "<td></td>");
-                }
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "</tr><tr id=row" + (i+2) + ">");
+                document.getElementById("row" + (i+2)).insertAdjacentHTML("beforeend", "<td>Losses: </td>");
 
                 for (var j = 0; j < tableArray[i+2]; j += 1){
                     document.getElementById("row" + (i+2)).insertAdjacentHTML("beforeend", "<td bgcolor='red'></td>");
                 }
-                for (var k = maxLength; k > j; k -= 1){
-                    document.getElementById("row" + (i+2)).insertAdjacentHTML("beforeend", "<td></td>");
-                }
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "</tr>");
-                
             }
-            //console.log(tableHTML);
-            //document.getElementById("chart").appendChild(tableHTML);
-            
+            addBlank();
 
-            /*var indexArray = pgnString.match('[Result "');
-            for (let x = 0; x < indexArray.length; x++) {
-                console.log(x);
-            }*/
+            //setting height of player name list to equal graph height
+
+            var chartHeight = document.getElementById("chart").offsetHeight;
+
+            document.getElementById("style-js").insertAdjacentHTML("beforeend", "#group-labels{height:" + chartHeight + "px ;}#group-list{height:" + chartHeight + "px ;}")
+
+            //document.getElementById("group-lables").style.height = chartHeight+"px";
 
         </script>
-
-        <section>
-            <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59114448.43114135!2d-42.09526046516597!3d25.268580564135945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486722e7908619b7%3A0xdc4f304036eabc1!2sBalbriggan%20Chess%20Club!5e0!3m2!1sen!2sie!4v1678890710420!5m2!1sen!2sie" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </section>
 
         <footer>
             <p>Copyright © 2023. All Rights Reserved.</p>
