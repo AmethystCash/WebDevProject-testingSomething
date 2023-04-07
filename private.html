@@ -28,29 +28,28 @@
             <table id="chart">
             </table>
             <section>
-                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59114448.43114135!2d-42.09526046516597!3d25.268580564135945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486722e7908619b7%3A0xdc4f304036eabc1!2sBalbriggan%20Chess%20Club!5e0!3m2!1sen!2sie!4v1678890710420!5m2!1sen!2sie" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59114448.43114135!2d-42.09526046516597!3d25.268580564135945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486722e7908619b7%3A0xdc4f304036eabc1!2sBalbriggan%20Chess%20Club!5e0!3m2!1sen!2sie!4v1678890710420!5m2!1sen!2sie" width="300" height="300" style="border:0; float: right;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
         </section>
 
         <script>
             var tableArray = [5, 7, 1, 19, 5, 15, 13, 3, 8, 10, 14, 16]; //array to store wins, draws & losses against each player - sample data
-
             var playerArray = ["Player 1", "Player 2", "Player 3", "Player 4"]; //array to store player names - sample data
-            var maxLength = 20;
+            var maxLength = 10;
             var tableHTML = "";
             var blanks = 0;
 
             function addBlank() { //adds a blank row to act as spacer
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "<tr id=blank"+ blanks +">");
-                for (var g = 0; g < maxLength + 2; g++){
+                for (var g = 0; g < maxLength + 3; g++){
                     document.getElementById("blank" + blanks).insertAdjacentHTML("beforeend", "<td style='height:9px;'></td>");
                 }
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "</tr><tr id=blank"+ (blanks+1) +">");
-                for (var g = 0; g < maxLength + 2; g++){
+                for (var g = 0; g < maxLength + 3; g++){
                     document.getElementById("blank" + (blanks + 1)).insertAdjacentHTML("beforeend", "<td style='height:2px; background-color: black;'></td>");
                 }
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "</tr><tr id=blank"+ (blanks+2) +">");
-                for (var g = 0; g < maxLength + 2; g++){
+                for (var g = 0; g < maxLength + 3; g++){
                     document.getElementById("blank" + (blanks + 2)).insertAdjacentHTML("beforeend", "<td style='height:9px;'></td>");
                 }   
 
@@ -74,7 +73,6 @@
                 
                 for (var j = 0; j < tableArray[i]; j += 1){
                     document.getElementById("row" + i).insertAdjacentHTML("beforeend", "<td bgcolor='green'></td>");
-                    console.log("J = " + j)
                 }
                 document.getElementById("chart").insertAdjacentHTML("beforeend", "</tr><tr id=row" + (i+1) + ">");
                 document.getElementById("row" + (i+1)).insertAdjacentHTML("beforeend", "<td></td><td>Draws: </td>");

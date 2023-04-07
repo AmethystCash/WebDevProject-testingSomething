@@ -2,9 +2,7 @@
 <html lang="en">
     <head>
         <title>Chess News</title>
-        <link rel="stylesheet" href="chesscomstylesheet.css">
         <link rel="stylesheet" href="project.css">
-        <link href="chess.html" rel="import" />
 
     </head>
     <body>
@@ -19,11 +17,14 @@
             </nav>
         </header>
         <main id="news-main">
-            
-            <iframe style="width: 400px; height: 520px; padding-top: 10px; margin: 10px; overflow-x: hidden;" src="https://www.chess.com/daily_puzzle" frameborder="0"></iframe>
+            <section id="puzzle-box">
+                <section id="puzzle-top-border"></section>
+                <iframe style="width: 400px; height: 520px; margin-right: 15px; overflow-x: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" src="https://www.chess.com/daily_puzzle" frameborder="0"></iframe>
+            </section>
+
             <section id="news">
-                <!--Going to scrape news from chess.com using rss feed-->
-                <script async defer src='https://p3k.org/rss/main.js?align=initial&amp;boxFillColor=%23ebecd0&amp;compact=false&amp;fontFace=10pt%20sans-serif&amp;frameColor=%23779456&amp;headless=false&amp;height=&amp;linkColor=%232c7395&amp;maxItems=25&amp;radius=10&amp;showXmlButton=true&amp;textColor=%2395412b&amp;titleBarColor=%2390a8b3&amp;titleBarTextColor=%23ffead2&amp;url=https%3A%2F%2Fchess.com%2Frss%2Fnews&amp;width='></script>
+                <!--news from chess.com using rss feed-->
+                <script async defer src='https://p3k.org/rss/main.js?align=initial&amp;boxFillColor=%23dcdcdc&amp;compact=false&amp;fontFace=12pt%20helvetica%2C%20sans-serif&amp;frameColor=%23008000&amp;headless=false&amp;height=&amp;linkColor=%23008000&amp;maxItems=25&amp;radius=10&amp;showXmlButton=true&amp;textColor=%23000000&amp;titleBarColor=%23008000&amp;titleBarTextColor=%23ffffff&amp;url=https%3A%2F%2Fwww.chess.com%2Frss%2Fnews&amp;width='></script>
             </section>
         </main>
 
