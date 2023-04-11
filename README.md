@@ -5,5 +5,4 @@ link to Project:  https://amethystcash.github.io/WebDevProject-testingSomething/
 
 
 
-Still under development
-  Repo contains large amounts of Junk Code for the purpose of showing development journey & learning throughout the course of the project.
+Still under development. Repo contains large amounts of Junk Code for the purpose of showing development journey & learning throughout the course of the project.
