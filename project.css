@@ -191,6 +191,13 @@ footer ul {
     padding-bottom: 50px;
 }
 
+#chessComImgLink{
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
 #chart-container{
     margin-top: 10px;
     display: flex;
