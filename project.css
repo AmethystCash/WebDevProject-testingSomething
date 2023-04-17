@@ -1,4 +1,4 @@
-header{
+header {
     height: 150px;
     background-color: rgba(0, 128, 0, 0.7);
 
@@ -17,6 +17,25 @@ header{
     justify-content: space-between;
     flex-direction: column;
 
+}
+
+#header-top{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    color: gainsboro;
+    text-align: center;
+    font-size: 35px;
+    transform: translate(-50px);
+}
+
+.logo{
+    float: left;
+    max-height: 50px;
+    width: 50px;
+    border-radius: 5px;
 }
 
 .navLink{
@@ -106,13 +125,6 @@ body{
     padding: 10px;
 }
 
-h1{
-    color: gainsboro;
-    text-align: center;
-    font-size: 35px;
-    
-}
-
 footer{
     flex: auto;
     flex-direction: column;
@@ -120,9 +132,32 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
-    text-align: center;
     background-color: darkgreen;
     color: lightgreen;
+    justify-content: start;
+    height:50px;
+    overflow:hidden;
+
+}
+
+footer p {
+    text-align: center;
+}
+
+footer:hover {
+    height: auto;
+    
+}
+
+
+footer ul li a{
+    text-align: left;
+    color: lightgreen;
+    text-decoration: none;
+}
+
+footer ul {
+    list-style: none;
 }
 
 .base-container{

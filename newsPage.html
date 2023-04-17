@@ -3,7 +3,7 @@
     <head>
         <title>Chess News</title>
         <link rel="stylesheet" href="project.css">
-        <link rel="icon" type="image/x-icon" href="/Images/white-king-icon-original.ico">
+        <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
         
         <meta charset="UTF-8">
         <meta name="description" content="chess news">
@@ -14,7 +14,10 @@
     <body>
 
         <header>
-            <h1>Chess News</h1>
+            <section id="headerUpper">
+                <img class="logo" src="Images/logo.png" alt="logo">
+                <h1>Chess News</h1>
+            </section>
         
             <nav>
                 <a class="navLink" href="newsPage.html">News</a>
@@ -26,6 +29,8 @@
             <section id="puzzle-box">
                 <section id="puzzle-top-border"></section>
                 <iframe style="width: 400px; height: 520px; margin-right: 15px; overflow-x: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" src="https://www.chess.com/daily_puzzle" frameborder="0"></iframe>
+                <h2></h2>
+                <iframe style="border-radius: 10px; margin-top: 15px;" width="400" height="225" src="https://www.youtube-nocookie.com/embed/e91M0XLX7Jw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </section>
 
             <section id="news">
@@ -35,8 +40,12 @@
         </main>
 
         <footer>
-            <p>Copyright © 2023. All Rights Reserved. Made for Collage Project.</p>
-            
+            <p>Copyright © 2023. All Rights Reserved. Made for Universtity Project.</p>
+            <ul>
+                <li><a href="newsPage.html">News</a></li>
+                <li><a href="chessAnalyzer.html">Stockfish Game Analyzer</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
         </footer>
     </body>
 </html>
