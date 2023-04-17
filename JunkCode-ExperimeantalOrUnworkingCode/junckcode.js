@@ -1,20 +1,54 @@
-//const fileInput = document.createElement('input');
-            //fileInput.type = 'file';
-            //fileInput.accept = '.pgn';
-            /*const file = 'chess_com_games_2023-03-25.txt';
-            const reader = new FileReader();
-            reader.onload = () => {
-                const pgnString = reader.result;
-                console.log(pgnString);
-            }; 
-            reader.readAsText(file);*/
 
-            //var reader = new FileReader();
-            
-            //reader.onload = function() {
-            //    console.log(reader.result);
-            //}
-            //reader.readAsText('sample.txt', 'UTF-8');
+var text;
+var links;
+var month;
+var monthJSON;
+function main() {
+    fetch('https://api.chess.com/pub/player/amethystcash/games/archives')
+    .then(response => response.text())
+    .then(data => {
+        text = data.slice(13, data.length - 2);
+        links = text.split('","');
+        if (links.length < 12){
+            iterations == links.length;
+        }
+        var iterations = 12;
+        for (let i = links.length - 2; i > links.length - iterations + 9; i--){ //loops through last 12 months of links
+            console.log(links[i])
+            month = fetch(links[i], {
+                mode : 'no-cors',
+            })
+            .then(response => response.text())
+            .then(data => {
+                //console.log(data);
+                //monthJSON = JSON.parse(data);
+                monthJSON = data;
+                //console.log(monthJSON);
+            })
+            setTimeout(100);
+            //time.sleep(1);
+        }
+    });
+
+    console.log(monthJSON);
+}
+main();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

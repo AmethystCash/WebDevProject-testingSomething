@@ -5,9 +5,11 @@
         <link rel="stylesheet" href="project.css">
         <link rel="script" href="chess_com.js">
         <style id="style-js">
+
         
         </style>
         
+        <meta charset="windows-1252">
 
     </head>
     <body>
@@ -97,7 +99,7 @@
             chartElement.removeChild(chartElement.lastChild);
             //setting height of player name list to equal graph height
 
-            var chartHeight = document.getElementById("chart").offsetHeight;
+            var chartHeight = document.getElementById("chart").offsetHeight;    
 
             document.getElementById("style-js").insertAdjacentHTML("beforeend", "#group-labels{height:" + chartHeight + "px ;}#group-list{height:" + chartHeight + "px ;}")
 
